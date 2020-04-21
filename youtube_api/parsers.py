@@ -270,7 +270,7 @@ def parse_rec_video_metadata(item):
         "video_description" : item["snippet"].get("description"),
         "video_category" : item["snippet"].get("categoryId"),
         "video_thumbnail" : item["snippet"]["thumbnails"]["high"]["url"],
-        "collection_date" : datetime.datetime.now()
+        "collection_date" : str(datetime.datetime.now())
     }
 
     return video_meta

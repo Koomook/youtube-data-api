@@ -93,6 +93,7 @@ class YouTubeDataAPI:
         Attempts to load the response of the http request,
         and returns json response.
         '''
+        print("API CALLED")
         if self.verbose:
             # Print the Http req and replace the API key with a placeholder
             print(http_endpoint.replace(self.key, '{API_KEY_PLACEHOLDER}'))
@@ -700,13 +701,16 @@ class YouTubeDataAPI:
                 if max_results:
                     if len(videos) >= max_results:
                         videos = videos[:max_results]
+                        print("Over max_results")
                         break
                 if response_json.get('nextPageToken'):
                     next_page_token = response_json.get('nextPageToken')
-                    time.sleep(.1)
+                    time.sleep(.01)
                 else:
+                    print("No nextPageToken")
                     break
             else:
+                print("No items")
                 break
 
         return videos

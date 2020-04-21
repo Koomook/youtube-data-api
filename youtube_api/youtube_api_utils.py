@@ -61,7 +61,7 @@ def parse_yt_datetime(date_str):
             date = datetime.datetime.strptime(date_str,"%Y-%m-%dT%H:%M:%S.%fZ")
         except:
             pass
-    return date
+    return str(date)
 
 def get_upload_playlist_id(channel_id):
     '''Given a channel_id, returns the user uploaded playlist id.'''
